@@ -1,0 +1,13 @@
+
+.left { text-align: left; }
+
+.fs-s { font-size: 12px; }
+.fs-m { font-size: 24px; }
+
+.med-icon {
+  max-width: 16rem !important;
+}
+
+h2 {
+  font-size: 5rem !IMPORTANT;
+}

@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/things.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/alicia.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+		<!-- Fonts and shit which should deffo be local -->
+		<link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<!-- Title Slide -->
+				<section>
+					<h1>Secure Coding</h1>
+				</section>
+
+				<!-- Intro Slides -->
+				<section>
+					<section data-markdown="content/1a-case-study.md" class="left"></section>
+					<section data-markdown="content/1b-case-study.md" class="left fs-m" ></section>
+					<section>
+						<blockquote>
+							The defender must be right every time.<br>
+							The attacker only needs to be right once.
+						</blockquote>
+						<aside class="notes">
+							Although some attacks are targeted, many are caused by hackers using automated tools, to scan sites on the Internet for known, exploitable vulnerabilities.
+							Attacks are happening all the time, and it's our job, as developers to ensure we're writing and deploying secure code.
+						</aside>
+					</section>
+					<section>
+						<iframe class="r-stretch" data-src="https://cybermap.kaspersky.com"></iframe>
+						<small>Source: <a href="https://cybermap.kaspersky.com">cybermap.kaspersky.com</a></small>
+					</section>
+					<section>
+						<img class="r-stretch" src="https://www.visualcapitalist.com/wp-content/uploads/2022/06/Chimdi-Nwosu-The-Top-50-Biggest-Data-Breaches-from-2004-to-2021-Full.png" />
+					</section>
+				</section>
+
+				<!-- Threat Modelling Slides -->
+				<section>
+					<section>
+						<h2>Threat Modelling</h2>
+						<aside class="notes">
+							So, imagine you're planning a house party. You wouldn't just send out invites without considering potential issues, right?
+							You'd think about who might spill drinks on your carpet, who might show up uninvited,
+							or who could cause a ruckus and disturb your neighbors. In a way, that's threat modeling!
+						</aside>
+					</section>
+					<section data-markdown="content/2a-threat-modelling.md" class="left fs-m"></section>
+					<section data-markdown="content/2b-threat-modelling.md" class="left fs-m" ></section>
+					<section data-markdown="content/2c-threat-modelling.md" class="left fs-m">
+					<aside class="notes">
+						the goal of threat modeling isn't to eliminate all risks—that's  impossible.
+						It's about understanding the risks and making informed  decisions on how to manage them. 
+					</aside>
+					</section>
+				</section>
+
+				<!-- OWASP Top-10 Intro -->
+				<section>
+					<h2>Common Attacks</h2>
+					<aside class="notes">
+						Every year, OWASP publish their top 10 list of the most common web application security risks.
+						Let's start by briefly looking at each of these, how they're caused, how they're exploited and what you can do to mitigate them.
+				</section>
+
+				<!-- Injections -->
+				<section data-background-color="#212846">
+					<section data-background-color="#495586">
+						<h2 style="color: #66deff; text-shadow: 3px 3px 0 #323e66;">Injection</h2>
+						<img class="med-icon" src="assets/icons/injection.png" />
+					</section>
+					<section data-markdown="content/3a-risks-injection-1.md" class="left fs-m"></section>
+					<section data-markdown="content/3a-risks-injection-2.md" class="left fs-m"></section>
+					<section data-markdown="content/3a-risks-injection-3.md" class="left fs-m"></section>
+					<section>thing</section>
+				</section>
+
+				<!-- Insecure Design -->
+				<section data-background-color="#004cbd">
+					<section data-background-color="#2483e1">
+						<h2 style="color: #66deff; text-shadow: 3px 3px 0 #004cbd;">Insecure Design</h2>
+						<img class="med-icon" src="assets/icons/data-exposure.png" />
+					</section>
+					<section>
+						thing
+					</section>
+				</section>
+
+				<!-- Broken Access Control -->
+				<section data-background-color="#84262a">
+					<section data-background-color="#e8333c" >
+						<h2 style="color: #495586; text-shadow: 3px 3px 0 #202b57;">Broken Access Control</h2>
+						<img class="med-icon" src="assets/icons/access-control.png" />
+					</section>
+				</section>
+
+				<!-- Cryptographic Failures -->
+				<section data-background-color="#09244d" >
+					<section data-background-color="#06367d" >
+						<h2 style="color: #f8ab00; text-shadow: 3px 3px 0 #775200;">Cryptographic Failures</h2>
+						<img class="med-icon" src="assets/icons/cryptographic-failure.png" />
+					</section>
+					<section>thing</section>
+				</section>
+
+				<!-- Security Misconfiguration -->
+				<section data-background-color="#212846">
+					<section data-background-color="#495586">
+						<h2 style="color: #5caeff; text-shadow: 3px 3px 0 #323e66;">Security Misconfiguration</h2>
+						<img class="med-icon" src="assets/icons/misconfiguration.png" />
+					</section>
+				</section>
+
+				<!-- Vulnerable and Outdated Components -->
+				<section data-background-color="#0f5514">
+					<section data-background-color="#1c9d25">
+						<h2 style="color: #d7eacd; text-shadow: 3px 3px 0 #0e7d16;">Vulnerable and Outdated Components</h2>
+						<img class="med-icon" src="assets/icons/vulnerable-dependencies.png" />
+					</section>
+				</section>
+
+				<!-- Identification and Authentication Failures -->
+				<section data-background-color="#12708a" >
+					<section data-background-color="#0ca2cc" >
+						<h2 style="color: #ff6161; text-shadow: 3px 3px 0 #323e66;">Identification and Authentication Failures</h2>
+						<img class="med-icon" src="assets/icons/authentication-failures.png" />
+					</section>
+					<section>thing</section>
+				</section>
+
+				<!-- Software and Data Integrity Failures -->
+				<section data-background-color="#e6c62a">
+					<section data-background-color="#ffeb87">
+						<h2 style="color: #2a92fa; text-shadow: 3px 3px 0 #313e65;">Software and Data Integrity Failures</h2>
+						<img class="med-icon" src="assets/icons/xss-integrity.png" />
+					</section>
+				</section>
+
+				<!-- -->
+				<section data-background-color="#1265b9">
+					<section data-background-color="#2a93fc">
+						<h2 style="color: #66deff; text-shadow: 3px 3px 0 #3d4a75;">Logging & Monitoring Failures</h2>
+						<img class="med-icon" src="assets/icons/monitoring.png" />
+					</section>
+				</section>
+
+				<!-- Server Side Request Forgery -->
+				<section data-background-color="#212846">
+					<section data-background-color="#3d4a75">
+						<h2 style="color: #43a2ff; text-shadow: 3px 3px 0 #323e66;">Server Side Request Forgery</h2>
+						<img class="med-icon" src="assets/icons/ssrf.png" />
+					</section>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath ]
+			});
+		</script>
+	</body>
+</html>
