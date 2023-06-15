@@ -1,5 +1,8 @@
 #### Injection Prevention Rules
-- Use prepared statements
-- Perform proper input validation - Prefer positive / allowed characters (rather than blocked). Don't rely solely on client-side validation
-- Use a safe API - Avoid interacting with services (like a database) directly, but instead build a safe API between the services
-- Contextually escape user data - Escape all characters that can be used for malicious things (e.g. `<` for client-side, `"` in databases, etc)
+
+- Prepared statements
+- Stored Procedures
+- Allow-list input validation
+- Escaping all user-supplied input
+- Education and proper code reviews
+- Automated scanning with tools like [SQLMap](https://github.com/sqlmapproject/sqlmap) and static analysis

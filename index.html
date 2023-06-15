@@ -22,8 +22,9 @@
 		<div class="reveal">
 			<div class="slides">
 				<!-- Title Slide -->
-				<section>
+				<section data-background-color="#000119" class="title-slide">
 					<h1>Secure Coding</h1>
+					<small style="color: #a33be2">Alicia Sykes</small>
 				</section>
 
 				<!-- Intro Slides -->
@@ -52,15 +53,16 @@
 				<!-- Threat Modelling Slides -->
 				<section>
 					<section>
-						<h2>Threat Modelling</h2>
+						<h2 style="color: #43a2ff; text-shadow: 3px 3px 0 #3c4974;">Threat Modelling</h2>
+						<img class="med-icon" src="assets/icons/threat-model.png" />
 						<aside class="notes">
 							So, imagine you're planning a house party. You wouldn't just send out invites without considering potential issues, right?
 							You'd think about who might spill drinks on your carpet, who might show up uninvited,
 							or who could cause a ruckus and disturb your neighbors. In a way, that's threat modeling!
 						</aside>
 					</section>
-					<section data-markdown="content/2a-threat-modelling.md" class="left fs-m"></section>
-					<section data-markdown="content/2b-threat-modelling.md" class="left fs-m" ></section>
+					<section data-markdown="content/2a-threat-modelling.md"></section>
+					<section data-markdown="content/2b-threat-modelling.md"></section>
 					<section data-markdown="content/2c-threat-modelling.md" class="left fs-m">
 					<aside class="notes">
 						the goal of threat modeling isn't to eliminate all risks—that's  impossible.
@@ -84,8 +86,13 @@
 						<img class="med-icon" src="assets/icons/injection.png" />
 					</section>
 					<section data-markdown="content/3a-risks-injection-1.md" class="left fs-m"></section>
-					<section data-markdown="content/3a-risks-injection-2.md" class="left fs-m"></section>
-					<section data-markdown="content/3a-risks-injection-3.md" class="left fs-m"></section>
+					<section>
+						<code>
+							String query = "SELECT \* FROM accounts WHERE custID='" + request.getParameter("id") + "'";
+						</code>
+					</section>
+					<section data-markdown="content/3a-risks-injection-2.md"></section>
+					<section data-markdown="content/3a-risks-injection-3.md"></section>
 					<section>thing</section>
 				</section>
 
@@ -94,18 +101,87 @@
 					<section data-background-color="#2483e1">
 						<h2 style="color: #66deff; text-shadow: 3px 3px 0 #004cbd;">Insecure Design</h2>
 						<img class="med-icon" src="assets/icons/data-exposure.png" />
+						<aside class="notes">
+							Scenario #1: A credential recovery workflow might include “questions and answers,”
+							which is prohibited by NIST 800-63b, the OWASP ASVS, and the OWASP Top 10.
+							Questions and answers cannot be trusted as evidence of identity as more than
+							one person can know the answers, which is why they are prohibited.
+							Such code should be removed and replaced with a more secure design.
+
+							Scenario #2: A cinema chain allows group booking discounts and has a
+							maximum of fifteen attendees before requiring a deposit. Attackers
+							could threat model this flow and test if they could book six hundred
+							seats and all cinemas at once in a few requests, causing a massive
+							loss of income.
+
+							Scenario #3: A retail chain’s e-commerce website does not have protection
+							against bots run by scalpers buying high-end video cards to resell auction
+							websites. This creates terrible publicity for the video card makers and
+							retail chain owners and enduring bad blood with enthusiasts who cannot
+							obtain these cards at any price. Careful anti-bot design and domain
+							logic rules, such as purchases made within a few seconds of availability,
+							might identify inauthentic purchases and rejected such transactions.
+						</aside>
 					</section>
-					<section>
-						thing
-					</section>
+					<section data-markdown="content/4a-insecure-design.md" class="left fs-m"></section>
+					<section data-markdown="content/4b-insecure-design.md" class="left fs-m"></section>
+					<section data-markdown="content/4c-security-principles.md"></section>
+					<section style="font-size: 1.3rem;" data-markdown="content/4d-secure-coding.md" class="left fs-m"></section>
 				</section>
 
 				<!-- Broken Access Control -->
-				<section data-background-color="#84262a">
+				<section data-background-color="#171717">
 					<section data-background-color="#e8333c" >
 						<h2 style="color: #495586; text-shadow: 3px 3px 0 #202b57;">Broken Access Control</h2>
 						<img class="med-icon" src="assets/icons/access-control.png" />
 					</section>
+					<section>
+						<h3>CORS</h3>
+						<p class="fragment fade-in-then-out">(I'm sorry)</p>
+						<aside class="notes">
+							Cross-origin resource sharing, is a mechanism that allows a website on one URL (origin) to request data from a different URL.
+						</aside>
+					</section>
+					<section data-markdown="content/5a-cors.md" class="left fs-m"></section>
+					<section data-markdown="content/5b-cors.md" class="left fs-m"></section>
+					<section data-markdown="content/5c-cors.md" class="left fs-m"></section>
+					<section data-markdown="content/5d-cors.md" class="left fs-m"></section>
+					<section>
+						<h3>So how does CORS help us secure our site?</h3>
+						<aside class="notes">
+							To clear things up, CORS by itself does not prevent or protect against any cyber attack.
+							It does not stop cross-site scripting (XSS) attacks.  
+
+							The same-origin policy is a concept implemented by web browsers that
+							prevent one web page from accessing sensitive data on another page.
+							This  type of attack is called a cross-site request forgery (CSRF or XSRF). 
+
+							SOP (same origin policy) Enforcement does NOT prevent a malicious
+							site from sending requests  to the REST endpoint with the real credentials
+							stored in your browser as  a cookie. It prevents the page from reading the response. 
+						</aside>
+					</section>
+
+					<section>
+						<h3>Access Control Design Principles</h3>
+						<ol>
+							<li class="fragment">Design Access Control Thoroughly Up Front</li>
+							<li class="fragment">Force All Requests to Go Through Access Control Checks</li>
+							<li class="fragment">Deny by Default</li>
+							<li class="fragment">Principle of Least Privilege</li>
+							<li class="fragment">Don't Hardcode Roles</li>
+							<li class="fragment">Log All Access Control Events</li>
+						</ol>
+						<aside class="notes">
+							<a href="https://owasp.org/www-project-proactive-controls/v3/en/c7-enforce-access-controls">c7-enforce-access-controls</a>
+							Access Control (or Authorization) is the process of granting or denying specific requests from a user,
+							program, or process. Access control also involves the act of granting and revoking those privileges.
+
+							It should be noted that authorization (verifying access to specific  features or resources)
+							is not equivalent to authentication (verifying  identity).
+						</aside>
+					</section>
+					
 				</section>
 
 				<!-- Cryptographic Failures -->
@@ -114,7 +190,27 @@
 						<h2 style="color: #f8ab00; text-shadow: 3px 3px 0 #775200;">Cryptographic Failures</h2>
 						<img class="med-icon" src="assets/icons/cryptographic-failure.png" />
 					</section>
-					<section>thing</section>
+					<section>
+						<p class="fragment">Failure to handle data properly and securely leads to sensitive data being exposed.
+							The selling of this data has grown to a multi-billion dollar industry, with the effects
+							of the breached companies and their clients being very significant.
+						</p>
+						<p class="fragment">
+							As developers, we need to take a step back, and think about what data we're storing,
+							how it's stored, accessed, transmitted and updated.
+						</p>
+					</section>
+					<section>
+						<ol>
+							<li class="fragment">Don't store sensitive data that isn't 100% necessary</li>
+							<li class="fragment">Encrypt all sensitive data both at rest, and in transit</li>
+							<li class="fragment">Ensure up-to-date and strong standard algorithms, protocols, and keys are in place; use proper key management</li>
+							<li class="fragment">Apply the correct access controls, as per the datas clasification</li>
+							<li class="fragment">Disable caching for response that contain sensitive data</li>
+							<li class="fragment">Always use authenticated encryption instead of just encryption.</li>
+
+						</ol>
+					</section>
 				</section>
 
 				<!-- Security Misconfiguration -->
@@ -150,7 +246,7 @@
 					</section>
 				</section>
 
-				<!-- -->
+				<!-- Logging & Monitoring Failures -->
 				<section data-background-color="#1265b9">
 					<section data-background-color="#2a93fc">
 						<h2 style="color: #66deff; text-shadow: 3px 3px 0 #3d4a75;">Logging & Monitoring Failures</h2>

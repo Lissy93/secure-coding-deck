@@ -1,3 +1,5 @@
+A common framework for use of generating threat models is [STRIDE](https://learn.microsoft.com/en-us/azure/security/develop/threat-modeling-tool-threats#stride-model)
+
 - Spoofing (≠ Authenticity)
 - Tampering (≠ Integrity)
 - Repudiation (≠ Non-repudiability)

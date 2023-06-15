@@ -14,7 +14,7 @@
 
 // Include theme-specific fonts
 @import url(./fonts/source-sans-pro/source-sans-pro.css);
-
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
 
 // Override theme settings (see ../template/settings.scss)
 $backgroundColor: #191919;
@@ -23,7 +23,7 @@ $mainColor: #fff;
 $headingColor: #fff;
 
 $mainFontSize: 32px;
-$mainFont: 'Source Sans Pro', Helvetica, sans-serif;
+$mainFont: 'Ubuntu', 'Source Sans Pro', Helvetica, sans-serif;
 $headingFont: 'Hack', 'Source Sans Pro', Helvetica, sans-serif;
 $headingTextShadow: none;
 $headingLetterSpacing: normal;
@@ -33,8 +33,8 @@ $linkColor: #42affa;
 $linkColorHover: lighten( $linkColor, 15% );
 $selectionBackgroundColor: rgba( $linkColor, 0.75 );
 
-$heading1Size: 2.5em;
-$heading2Size: 1.6em;
+$heading1Size: 10rem;
+$heading2Size: 5rem;
 $heading3Size: 1.3em;
 $heading4Size: 1.0em;
 
@@ -45,3 +45,5 @@ $heading4Size: 1.0em;
 // Theme template ------------------------------
 @import "../template/theme";
 // ---------------------------------------------
+
+
