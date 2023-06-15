@@ -1,6 +1,6 @@
 This is where a user input is not sanitized before being sent to the server, or appended to the database. This allows an attacker to insert malicious code, which is then executed, leading to unexpected or harmful results.
 
-<img style="margin: 0 auto; display: flex;" src="/assets/pictures/sql-injection.svg" />
+<img style="margin: 0 auto; display: flex;" src="assets/pictures/sql-injection.svg" />
 
 <aside class="notes">
   Injection has been number 1 on the OWASP top 10 list since 2010. It should still not be considered a "solved" problem.

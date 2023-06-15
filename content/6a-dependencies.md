@@ -1,0 +1,11 @@
+- Check for Outdated Dependencies
+- Remove Unused Packages
+- Audit Package Security
+- Only use Well Maintained Packages
+- Ignore Run Scripts
+- Be mindful about what you're installing
+- Strict Installs
+- Commit your Lockfile
+- Consider a private registry
+- Secure your workflows
+- Watch out for Typosquatting Attacks

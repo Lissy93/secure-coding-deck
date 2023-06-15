@@ -227,6 +227,19 @@
 						<h2 style="color: #d7eacd; text-shadow: 3px 3px 0 #0e7d16;">Vulnerable and Outdated Components</h2>
 						<img class="med-icon" src="assets/icons/vulnerable-dependencies.png" />
 					</section>
+					<section>
+						Components typically run with the same privileges as the application itself, so flaws in any component can result in serious impact.
+						Such flaws can be accidental (e.g., coding error) or intentional (e.g., a backdoor in a component).
+						<aside class="notes">
+							Whatever you're building, it's highly likely you'll be using libraries / frameworks / modules / components that were written by someone else.
+							Building on others work is fundamental to the progression of the industry, and there's no point reinventing the wheel.
+							<a href="https://cdn2.hubspot.net/hub/203759/file-1100864196-pdf/docs/Contrast_-_Insecure_Libraries_2014.pdf">reality paper</a>
+						</aside>
+					</section>
+					<section data-markdown="content/6a-dependencies.md"></section>
+					<section>
+						<a href="https://notes.aliciasykes.com/28300/npm-dependency-security-best-practices">NPM Security Best Practices</a>
+					</section>
 				</section>
 
 				<!-- Identification and Authentication Failures -->
@@ -235,7 +248,9 @@
 						<h2 style="color: #ff6161; text-shadow: 3px 3px 0 #323e66;">Identification and Authentication Failures</h2>
 						<img class="med-icon" src="assets/icons/authentication-failures.png" />
 					</section>
-					<section>thing</section>
+					<section data-markdown="content/7a-broken-auth.md"></section>
+					<section data-markdown="content/7b-broken-auth.md" class="left fs-m"></section>
+					<section data-markdown="content/7c-broken-auth.md" class="left fs-m"></section>
 				</section>
 
 				<!-- Software and Data Integrity Failures -->
